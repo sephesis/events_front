@@ -12,6 +12,7 @@ const Form = ({}) => {
     const [currentStep, setCurrentStep] = useState(1);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [responseData, setResponseData] = useState([]);
+    const [title, setTitle] = useState(!isSubmitted ? 'Заполните форму' : 'Выберите мероприятия');
     
 
     const [formData, setFormData] = useState({
@@ -78,15 +79,19 @@ const Form = ({}) => {
 
 
     if (isSubmitted) {
-        return <CardList data={responseData} />; // Render the CardList component
+        <h1>{title}</h1>
+        return <CardList data={responseData} />;
     }
 
     return (
+        <div>
+        <h1>{title}</h1>
         <form>
             {currentStep === 1 && (<Step1 formData={formData} onChange={handleChange} onNext={nextStep}/>)}
             {currentStep === 2 && (<Step2 formData={formData} onChange={handleCheckboxChange} onNext={nextStep} onBack={prevStep}/>)}
             {currentStep === 3 && (<Step3 formData={formData} onChange={handleChange} onSubmit={handleSubmit} onBack={prevStep}/>)}
         </form>
+        </div>
     );
 }
 

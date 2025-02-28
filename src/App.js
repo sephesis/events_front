@@ -11,12 +11,12 @@ function App() {
 
   // const [citiesData, setCitiesData] = useState([]);
 
-  const [title, setTitle] = useState('Заполните форму');
+ 
 
   return (
     <div className="App">
      <div className='container'>
-      <h1>{title}</h1>
+      
       <Form />
       
       {/* { <CityList data={citiesData} />}

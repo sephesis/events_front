@@ -7,11 +7,8 @@ const CardList = ({ data }) => {
             {data.length > 0 ? (
               
                 data.map(card => (
-                    console.log(card.name),
                     <Card
-                        key={card.id}
-                        cardId={card.id}
-                        cardName={card.name}
+                        card={card}
                     />
                 ))
             ) : (
