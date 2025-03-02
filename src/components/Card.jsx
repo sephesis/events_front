@@ -10,7 +10,7 @@ const Card = ({ card }) => {
                 </div>
                 <div className="card__bottom">
 
-                    <h5 className="card-title">{card.short_title}</h5>
+                    <h5 className="card-title">{card.short_title || card.title}</h5>
                     <p>{card.description}</p>
                 </div>
             </div>
