@@ -25,6 +25,9 @@ const Step1 = ({ formData, onNext, onChange }) => {
         fetchData();
     }, []);
 
+    const handleCityChange = (value) => {
+        onChange({ target: { name: "city", value } }); // Эмулируем событие для handleChange в Form
+    };
     return (
         <div className="form-group">
             <div className="form__top">
@@ -32,7 +35,7 @@ const Step1 = ({ formData, onNext, onChange }) => {
             <span className="circle"></span>
             </div>
             
-            {<CityList data={citiesData} formData={formData} onChange={onChange} />}
+            {<CityList data={citiesData} formData={formData} onChange={handleCityChange} />}
             <Button customClass="button__main" onClick={onNext}>Далее</Button>
         </div>
     );

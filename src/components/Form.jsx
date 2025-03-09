@@ -54,7 +54,8 @@ const Form = ({}) => {
         e.preventDefault();
         
         try {
-            const response = await fetch(api_path + 'events/', {
+            const queryParams = new URLSearchParams(formData).toString();
+            const response = await fetch(api_path + 'events/?' + queryParams, {
                 method: 'GET',
                 header: { 'Content-Type': 'application/json' },
                // body: JSON.stringify(formData)

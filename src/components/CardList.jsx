@@ -1,9 +1,10 @@
 import React from 'react';
-import Card from './Card';
+import Card from './Card/Card';
 
 const CardList = ({ data }) => {
     return (
         <div className="row">
+            <div className="card-container">
             {data.length > 0 ? (
               
                 data.map(card => (
@@ -14,6 +15,7 @@ const CardList = ({ data }) => {
             ) : (
                 <p>Событий нет</p>
             )}
+            </div>
         </div>
     );
 }
