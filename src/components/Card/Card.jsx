@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Card.css";
 
-const Card = ({ card }) => {
+const Card = ({ card, onSelect }) => {
+
+    const [isSelected, setIsSelected] = useState(false);
+
+    const handleClick = () => {
+
+        const newSelectedState = !isSelected;
+
+        setIsSelected(newSelectedState);
+
+        onSelect(card.id, card.location.coords, newSelectedState);
+    };
     return (
         <div className="col-lg-3 mb-4">
-            <div className="card card-custom" key={card.id}>
-                <div className="card__top">
+            <div data-id={card.id} className={`card ${isSelected ? "card--selected" : ""}`}  onClick={handleClick} key={card.id}>
+                <div  className="card__top">
                     {/* {console.log(card.images[0].source.link)} */}
                     {card.images && (
                         

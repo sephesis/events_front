@@ -1,14 +1,14 @@
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Расстояние между карточками */
-}
 .card {
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-color: #fff;
+    display: block;
+}
+
+.card.card--selected {
+    border: 5px solid var(--main-btn-hover-border);
 }
 
 .card:hover {
