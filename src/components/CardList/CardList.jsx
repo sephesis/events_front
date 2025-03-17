@@ -14,8 +14,6 @@ const CardList = ({ data }) => {
         } else {
             setSelectedCoords((prev) => prev.filter((c) => c !== coords));
         }
-
-        console.log(selectedCoords)
     };
 
     const toggleViewMode = () => {
@@ -24,7 +22,7 @@ const CardList = ({ data }) => {
 
     return (
         <div className="row">
-            <Button onClick={toggleViewMode}> {isListView ? 'Показать карточки' : 'Показать списком'} </Button>
+            <Button customClass='button__small' onClick={toggleViewMode}> {isListView ? 'Показать карточки' : 'Показать списком'} </Button>
             {data.length > 0 ? (
 
                 data.map(card => (
