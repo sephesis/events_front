@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "./Button";
+import Button from "./Button/Button";
 import { json_path } from '../constants.js';
 import CityList from "./CityList";
 

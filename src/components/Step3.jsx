@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button from "./Button";
+import Button from "./Button/Button";
 import Input from './Input';
 
 const Step3 = ({ formData, onBack, onChange, onSubmit }) => {
