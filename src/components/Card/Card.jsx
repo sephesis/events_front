@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Card.css";
 
-const Card = ({ card, onSelect }) => {
+const Card = ({ card, onSelect, isListView }) => {
 
     const [isSelected, setIsSelected] = useState(false);
 
@@ -14,12 +14,11 @@ const Card = ({ card, onSelect }) => {
         onSelect(card.id, card.location.coords, newSelectedState);
     };
     return (
-        <div className="col-lg-3 mb-4">
-            <div data-id={card.id} className={`card ${isSelected ? "card--selected" : ""}`}  onClick={handleClick} key={card.id}>
-                <div  className="card__top">
-                    {/* {console.log(card.images[0].source.link)} */}
+
+        <div className={`${isListView ? ' ' : ' col-lg-3 mb-4 '}`}>
+            <div data-id={card.id} className={`card ${isSelected ? "card--selected" : ""}`} onClick={handleClick} key={card.id}>
+                <div className="card__top">
                     {card.images && (
-                        
                         <img src={card.images[0] ?? card.images[0].source.link} alt={card.title} className="card__image" />
                     )}
                     {card.age_restriction && (
