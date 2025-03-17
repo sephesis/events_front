@@ -15,7 +15,7 @@ const Card = ({ card, onSelect, isListView }) => {
     };
     return (
 
-        <div className={`${isListView ? ' ' : ' col-lg-3 mb-4 '}`}>
+        <div className={`${isListView ? ' col-lg-12 mb-4' : ' col-lg-3 mb-4 '}`}>
             <div data-id={card.id} className={`card ${isSelected ? "card--selected" : ""}`} onClick={handleClick} key={card.id}>
                 <div className="card__top">
                     {card.images && (
