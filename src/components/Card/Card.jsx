@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./Card.css";
 
 const Card = ({ card, onSelect, isListView }) => {
 
     const [isSelected, setIsSelected] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleClick = () => {
 

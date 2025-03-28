@@ -5,6 +5,14 @@
     font-weight: var(--font-weight-semi-bold);
 }
 
+.button__small {
+  border-radius: 10px;
+}
+
+.button__margin {
+    margin-bottom: 20px;
+}
+
 .button__main {
     background-color: var(--main-btn-bg-color);
     color: var(--main-btn-color) ;

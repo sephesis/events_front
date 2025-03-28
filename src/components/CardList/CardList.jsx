@@ -22,9 +22,28 @@ const CardList = ({ data }) => {
 
     return (
         <div className="row">
-            <Button customClass='button__small' onClick={toggleViewMode}> {isListView ? 'Показать карточки' : 'Показать списком'} </Button>
+            <div className="col-lg-12 d-flex justify-content-end ">
+            <Button customClass='button__small button__margin ' onClick={toggleViewMode}>
+                {
+                    isListView ?
+                        (
+                            <img
+                                src="/images/card.svg"
+                                alt="Карточки"
+                             
+                            />
+                        )
+                        :
+                        (
+                            <img
+                                src="/images/row.svg"
+                                alt="Список"
+                                
+                            />
+                        )
+                } </Button>
+                </div>
             {data.length > 0 ? (
-
                 data.map(card => (
                     <Card
                         key={card.id}
