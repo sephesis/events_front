@@ -23,7 +23,7 @@ const CardList = ({ data }) => {
     return (
         <div className="row">
             <div className="col-lg-12 d-flex justify-content-end ">
-            <Button customClass='button__small button__margin ' onClick={toggleViewMode}>
+            <Button customClass='button__small button__margin button__main ' onClick={toggleViewMode}>
                 {
                     isListView ?
                         (
