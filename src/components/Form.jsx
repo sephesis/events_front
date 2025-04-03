@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Step1 from "./Step1";
 import Step2 from "./Step2";
@@ -13,13 +13,39 @@ const Form = ({}) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [responseData, setResponseData] = useState([]);
     const [title, setTitle] = useState(!isSubmitted ? 'Заполните форму' : 'Выберите мероприятия');
-    
+    const [categories, setCategories] = useState([]);
 
     const [formData, setFormData] = useState({
         city: '7700000000000',
         price: 0,
         areas: []
     });
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await fetch(`${api_path}categories/`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                console.log(response);
+
+                if (!response.ok) {
+                    throw new Error('Ошибка при получении категорий');
+                }
+
+                const data = await response.json();
+                setCategories(data.categories || []); // Предполагаем, что API возвращает объект с полем categories
+            } catch (error) {
+                console.error('Ошибка при загрузке категорий:', error);
+            }
+        };
+
+        fetchCategories();
+    }, []);
 
     const nextStep = () => {
         setCurrentStep(currentStep + 1);
@@ -41,6 +67,7 @@ const Form = ({}) => {
     const handleCheckboxChange = (event) => {
         const { value, checked } = event.target;
     
+        console.log(value);
         setFormData((prevData) => {
             if (checked) {
                 return { ...prevData, areas: [...prevData.areas, value] };
@@ -89,7 +116,7 @@ const Form = ({}) => {
         <h1>{title}</h1>
         <form>
             {currentStep === 1 && (<Step1 formData={formData} onChange={handleChange} onNext={nextStep}/>)}
-            {currentStep === 2 && (<Step2 formData={formData} onChange={handleCheckboxChange} onNext={nextStep} onBack={prevStep}/>)}
+            {currentStep === 2 && (<Step2 categories={categories} formData={formData} onChange={handleCheckboxChange} onNext={nextStep} onBack={prevStep}/>)}
             {currentStep === 3 && (<Step3 formData={formData} onChange={handleChange} onSubmit={handleSubmit} onBack={prevStep}/>)}
         </form>
         </div>
