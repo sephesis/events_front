@@ -1,0 +1,12 @@
+{
+    "login": {
+      "route": "/login",
+      "name": "Авторизация",
+      "component": "LoginPage"
+    },
+    "events": {
+      "route": "/events",
+      "name": "Мероприятия",
+      "component": "Form"
+    }
+  }

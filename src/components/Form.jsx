@@ -31,8 +31,6 @@ const Form = ({}) => {
                     }
                 });
 
-                console.log(response);
-
                 if (!response.ok) {
                     throw new Error('Ошибка при получении категорий');
                 }
