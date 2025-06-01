@@ -43,4 +43,9 @@ select, input {
     border-radius: 50%;
 }
 
-
+.footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #FF9C28;
+    color: #ffffff;
+}

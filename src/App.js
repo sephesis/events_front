@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Form from './components/Form.jsx';
 import LoginPage from './pages/Login.jsx';
 import TopMenu from './components/Menu/TopMenu.jsx';
+import FooterMenu from './components/Menu/FooterMenu.jsx';
 
 const componentMap = {
   LoginPage: LoginPage,
@@ -28,14 +29,20 @@ function App() {
         <TopMenu routes={routes} />
         <Routes>
           {routes.map((route) => (
-            <Route 
-              key={route.route} 
-              path={route.route} 
-              element={React.createElement(componentMap[route.component])} 
+            <Route
+              key={route.route}
+              path={route.route}
+              element={React.createElement(componentMap[route.component])}
             />
           ))}
         </Routes>
+
       </div>
+      <footer className="footer">
+        <div className="container">
+          <FooterMenu routes={routes} />
+        </div>
+      </footer>
     </div>
   );
 }
