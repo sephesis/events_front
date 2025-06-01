@@ -1,0 +1,27 @@
+.menu {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 16px;
+}
+
+.menu__list {
+  display: flex;
+  list-style: none;
+  justify-content: start;
+  margin: 0;
+  padding: 0;
+}
+
+.menu__link:first-child {
+  padding-left: 0;
+}
+
+.menu__link {
+  text-decoration: none;
+  color: #000000;
+  padding: 0.5rem 1rem;
+}
+
+.menu__link:hover {
+  color: var(--main-btn-bg-color);
+}

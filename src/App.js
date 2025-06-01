@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Form from './components/Form.jsx';
 import LoginPage from './pages/Login.jsx';
+import TopMenu from './components/Menu/TopMenu.jsx';
 
 const componentMap = {
   LoginPage: LoginPage,
   Form: Form,
-  // Добавьте другие компоненты по мере необходимости
 };
 
 function App() {
@@ -25,15 +25,8 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        {/* Навигационные ссылки */}
-        {routes.map((route) => (
-          <Link key={route.route} to={route.route}>
-            {route.name}
-          </Link>
-        ))}
-        
+        <TopMenu routes={routes} />
         <Routes>
-          {/* Динамические роуты из JSON */}
           {routes.map((route) => (
             <Route 
               key={route.route} 
